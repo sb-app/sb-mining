@@ -8,13 +8,8 @@ class YahooConnector(IConnector):
     __connection = {}
     __url = 'http://ichart.finance.yahoo.com/table.csv?s=%s&g=abo'
 
-    def __init__(self):
-
-        IConnector.__init__(self)
-        pass
-
+    @classmethod
     def connect(self, args):
-
         if args not in self.__connection:
             target_url = self.__url % args
             csv = requests.get(target_url)
